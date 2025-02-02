@@ -1,0 +1,3 @@
+[submodule "static_exception"]
+	path = static_exception
+	url = https://github.com/ApexAI/static_exception
