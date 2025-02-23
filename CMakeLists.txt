@@ -10,6 +10,6 @@ add_subdirectory(static_exception)
 add_library(static_std_exception SHARED lib/throw_functions.cc)
 target_link_libraries(static_std_exception static_exception)
 
-target_compile_options(static_std_exception PRIVATE -O2 -Wall -Werror -Wpedantic -DFORTIFY_SOURCE=2 -D_GLIBCXX_ASSERTIONS -fpic)
+target_compile_options(static_std_exception PRIVATE -O2 -Wall -Werror -Wpedantic -Wno-stringop-truncation -DFORTIFY_SOURCE=2 -D_GLIBCXX_ASSERTIONS -fpic)
 
 add_subdirectory(test)

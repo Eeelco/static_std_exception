@@ -15,20 +15,20 @@ public:
   StackString(const char *str) {
     std::size_t len = std::strlen(str);
     if (len >= stackBufferSize) {
-      std::memcpy(buffer, str, stackBufferSize - truncatedMessageSize);
-      std::memcpy(buffer + stackBufferSize - truncatedMessageSize, truncatedMessage,
+      std::strncpy(buffer, str, stackBufferSize - truncatedMessageSize);
+      std::strncpy(buffer + stackBufferSize - truncatedMessageSize, truncatedMessage,
                   truncatedMessageSize);
       buffer[stackBufferSize-1] = '\0';
     } else {
-      std::memcpy(buffer, str, len);
+      std::strncpy(buffer, str, len);
       buffer[len] = '\0';
     }
   }
   StackString(const StackString &other) {
-    std::memcpy(buffer, other.buffer, stackBufferSize);
+    std::strncpy(buffer, other.buffer, stackBufferSize);
   }
   StackString(StackString &&other) {
-    std::memcpy(buffer, other.buffer, stackBufferSize);
+    std::strncpy(buffer, other.buffer, stackBufferSize);
   }
 
   const char* c_str() const { return buffer; }
