@@ -5,7 +5,7 @@ set(CMAKE_CXX_STANDARD 17)
 
 project(static_std_exception)
 
-add_subdirectory(static_exception)
+add_subdirectory(static_exception EXCLUDE_FROM_ALL)
 
 add_library(static_std_exception SHARED lib/throw_functions.cc)
 target_link_libraries(static_std_exception static_exception)
